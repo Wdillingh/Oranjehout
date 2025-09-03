@@ -119,29 +119,27 @@
 					target: $body,
 					visibleClass: 'header-visible'
 				});
-// Selecteer alle elementen
 const galleryImages = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.close');
 
-// Klik op een afbeelding opent lightbox
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
     lightbox.style.display = 'block';
-    lightboxImg.src = img.src;
+    lightboxImg.src = img.dataset.full || img.src;
     lightboxImg.alt = img.alt;
   });
 });
 
-// Klik op X sluit lightbox
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
 
-// Klik buiten de afbeelding sluit lightbox
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) {
     lightbox.style.display = 'none';
   }
 });
+
+
