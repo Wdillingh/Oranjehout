@@ -1,71 +1,96 @@
-/* ===== Algemene Stijlen ===== */
-/* Reset en basisinstellingen */
-body {
+/* ===== Reset & Basics ===== */
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
   background: #fff;
   color: #333;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.6;
 }
 
-/* Koppen */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 10px;
-  font-weight: bold;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Containers */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== Layout Helpers ===== */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Secties */
-section {
+header, section {
+  text-align: center;
   padding: 60px 0;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* ===== Headings ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
-header h2 {
+h2 {
   font-size: 2em;
-  margin-bottom: 10px;
+  color: #333;
 }
 
-header p {
-  font-size: 1.1em;
-  color: #666;
+p {
+  margin-bottom: 20px;
 }
 
-/* ===== Footer ===== */
-#footer {
-  background: #111;
+/* ===== Navigation ===== */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #222;
   color: #fff;
-  text-align: center;
-  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1000;
 }
 
-#footer .copyright {
+#nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-#footer .copyright li {
-  display: block;
-  line-height: 1.25em;
-  border: 0;
-  padding: 0;
-  margin: 1em 0 0 0;
+#nav ul li {
+  margin: 20px 0;
 }
 
-#footer .copyright li:first-child {
-  margin-top: 0;
+#nav ul li a {
+  color: #fff;
+  font-size: 1.2em;
+  transition: color 0.3s;
+}
+
+#nav ul li a:hover {
+  color: #f90;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 80px 0;
+}
+
+section.three {
+  background: #f7f7f7;
 }
 
 /* ===== Portfolio Gallery ===== */
@@ -90,7 +115,7 @@ header p {
 
 /* ===== Lightbox ===== */
 .lightbox {
-  display: none; /* Verborgen standaard */
+  display: none;
   position: fixed;
   z-index: 999;
   padding-top: 60px;
@@ -126,13 +151,46 @@ header p {
   color: #bbb;
 }
 
-/* ===== Responsiveness ===== */
-@media (max-width: 768px) {
-  header h2 {
-    font-size: 1.5em;
-  }
-
-  .container {
-    width: 95%;
-  }
+/* ===== Contact Form ===== */
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
+
+form input[type="submit"] {
+  background: #f90;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+form input[type="submit"]:hover {
+  background: #e67e00;
+}
+
+/* ===== Footer ===== */
+#footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#footer .copyright {
+  list-style: none;
+}
+
+#footer .copyright li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* ===== Font Awesome (voor iconen) ===== */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
