@@ -222,7 +222,7 @@ function openLightbox(index) {
     const overlay = item.querySelector('.portfolio-overlay');
     
     // Get large image path (replace _thumb with _large or your naming convention)
-    const largeSrc = img.src.replace('_thumb', '_large');
+    const largeSrc = img.src.replace('-700', '-1400');
     
     document.getElementById('lightboxImage').src = largeSrc;
     document.getElementById('lightboxTitle').textContent = overlay.querySelector('h3').textContent;
@@ -351,6 +351,7 @@ function smoothScrollTo(targetId) {
 	</body>
 
 </html>
+
 
 
 
