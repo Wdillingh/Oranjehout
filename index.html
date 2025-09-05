@@ -147,7 +147,131 @@
         </div>
     </div>
 </div>
-				
+	<script>
+// Portfolio JavaScript
+let currentImageIndex = 0;
+let portfolioItems = [];
+
+// Initialize portfolio
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all portfolio items
+    portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    // Add click listeners to portfolio items
+    portfolioItems.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
+    });
+    
+    // Add click listeners to filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Filter items
+            const filter = btn.getAttribute('data-filter');
+            filterPortfolio(filter);
+        });
+    });
+    
+    // Close lightbox on background click
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeLightbox();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('active')) {
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    navigateImage(-1);
+                    break;
+                case 'ArrowRight':
+                    navigateImage(1);
+                    break;
+            }
+        }
+    });
+});
+
+// Filter portfolio items
+function filterPortfolio(category) {
+    portfolioItems.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+// Open lightbox
+function openLightbox(index) {
+    currentImageIndex = index;
+    const item = portfolioItems[index];
+    const img = item.querySelector('img');
+    const overlay = item.querySelector('.portfolio-overlay');
+    
+    // Get large image path (replace _thumb with _large or your naming convention)
+    const largeSrc = img.src.replace('_thumb', '_large');
+    
+    document.getElementById('lightboxImage').src = largeSrc;
+    document.getElementById('lightboxTitle').textContent = overlay.querySelector('h3').textContent;
+    
+    // Get details
+    const details = Array.from(overlay.querySelectorAll('p')).map(p => p.textContent).join(' • ');
+    document.getElementById('lightboxDetails').textContent = details;
+    
+    const woodType = overlay.querySelector('.wood-type');
+    document.getElementById('lightboxWood').textContent = woodType ? woodType.textContent : '';
+    
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Close lightbox
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Navigate between images
+function navigateImage(direction) {
+    const visibleItems = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
+    const currentVisibleIndex = visibleItems.indexOf(portfolioItems[currentImageIndex]);
+    
+    let newIndex = currentVisibleIndex + direction;
+    
+    if (newIndex >= visibleItems.length) {
+        newIndex = 0;
+    } else if (newIndex < 0) {
+        newIndex = visibleItems.length - 1;
+    }
+    
+    const actualIndex = Array.from(portfolioItems).indexOf(visibleItems[newIndex]);
+    openLightbox(actualIndex);
+}
+
+// Smooth scrolling for anchor links (if you want to add nav link)
+function smoothScrollTo(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+</script>			
 				<!-- Over mij -->
 					<section id="about" class="three">
 						<div class="container">
@@ -227,6 +351,7 @@
 	</body>
 
 </html>
+
 
 
 
