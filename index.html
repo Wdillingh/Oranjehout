@@ -67,30 +67,76 @@
 
 						</div>
 					</section>
-
-<!-- Portfolio -->
-<section id="portfolio" class="three">
-  <div class="container">
-    <header>
-      <h2>Portfolio</h2>
-      <p>Een greep uit mijn handgemaakte lepels en andere houten creaties.</p>
-    </header>
-
-    <div class="gallery">
-      <img src="images/mok2-700.jpg" data-full="images/mok2-1400.jpg" alt="Mok 2">
-      <img src="images/mok3-700.jpg" data-full="images/mok3-1400.jpg" alt="Mok 3">
-      <img src="images/spintol-700.jpg" data-full="images/spintol-1400.jpg" alt="Spintol">
-      <img src="images/knijpers-700.jpg" data-full="images/knijpers-1400.jpg" alt="Knijpers">
-      <img src="images/lepel1-700.jpg" data-full="images/lepel1-1400.jpg" alt="Lepel 1">
-      <img src="images/lepel2-700.jpg" data-full="images/lepel2-1400.jpg" alt="Lepel 2">
-      <img src="images/lepel3-700.jpg" data-full="images/lepel3-1400.jpg" alt="Lepel 3">
-      <img src="images/lepel4-700.jpg" data-full="images/lepel4-1400.jpg" alt="Lepel 4">
-      <img src="images/lepel5-700.jpg" data-full="images/lepel5-1400.jpg" alt="Lepel 5">
-      <img src="images/lepel6-700.jpg" data-full="images/lepel6-1400.jpg" alt="Lepel 6">
-      <img src="images/mok1-700.jpg" data-full="images/mok1-1400.jpg" alt="Mok 1">
+<!-- Portfolio Section - voeg dit toe aan je HTML -->
+<section id="portfolio" class="main">
+    <div class="container">
+        <header>
+            <h2>Mijn Houtsnijwerk</h2>
+            <p>Handgemaakte lepels en mokken uit verschillende houtsoorten</p>
+        </header>
+        
+        <div class="portfolio-container">
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Alles</button>
+                <button class="filter-btn" data-filter="lepels">Lepels</button>
+                <button class="filter-btn" data-filter="mokken">Mokken</button>
+                <button class="filter-btn" data-filter="bekers">Bekers</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Voorbeeld items - pas aan naar jouw afbeeldingen -->
+                <div class="portfolio-item" data-category="lepels">
+                    <img src="images/lepel01_thumb.jpg" alt="Houten lepel in eikenhout">
+                    <div class="portfolio-overlay">
+                        <h3>Eiken Lepel</h3>
+                        <p>Lengte: 18cm</p>
+                        <p>December 2024</p>
+                        <span class="wood-type">Eikenhout</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="mokken">
+                    <img src="images/mok01_thumb.jpg" alt="Houten mok in berkenhout">
+                    <div class="portfolio-overlay">
+                        <h3>Berken Mok</h3>
+                        <p>Hoogte: 10cm</p>
+                        <p>November 2024</p>
+                        <span class="wood-type">Berkenhout</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="lepels">
+                    <img src="images/lepel02_thumb.jpg" alt="Houten lepel in esdoornhout">
+                    <div class="portfolio-overlay">
+                        <h3>Esdoorn Lepel</h3>
+                        <p>Lengte: 16cm</p>
+                        <p>Oktober 2024</p>
+                        <span class="wood-type">Esdoornhout</span>
+                    </div>
+                </div>
+                
+                <!-- Voeg meer items toe voor al je 9 afbeeldingen -->
+            </div>
+        </div>
     </div>
-  </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" onclick="navigateImage(1)">&#8250;</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <div class="lightbox-info" id="lightboxInfo">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDetails"></p>
+            <p id="lightboxWood"></p>
+        </div>
+    </div>
+</div>
 				
 				<!-- Over mij -->
 					<section id="about" class="three">
@@ -171,6 +217,7 @@
 	</body>
 
 </html>
+
 
 
 
