@@ -1,196 +1,327 @@
-<!-- Portfolio Section - voeg dit toe aan je HTML -->
-<section id="portfolio" class="main">
-    <div class="container">
-        <header>
-            <h2>Mijn Houtsnijwerk</h2>
-            <p>Handgemaakte lepels en mokken uit verschillende houtsoorten</p>
-        </header>
-        
-        <div class="portfolio-container">
-            <!-- Filter Buttons -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Alles</button>
-                <button class="filter-btn" data-filter="lepels">Lepels</button>
-                <button class="filter-btn" data-filter="mokken">Mokken</button>
-                <button class="filter-btn" data-filter="bekers">Bekers</button>
-            </div>
-            
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                <!-- Voorbeeld items - pas aan naar jouw afbeeldingen -->
-                <div class="portfolio-item" data-category="lepels">
-                    <img src="images/lepel01_thumb.jpg" alt="Houten lepel in eikenhout">
-                    <div class="portfolio-overlay">
-                        <h3>Eiken Lepel</h3>
-                        <p>Lengte: 18cm</p>
-                        <p>December 2024</p>
-                        <span class="wood-type">Eikenhout</span>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="mokken">
-                    <img src="images/mok01_thumb.jpg" alt="Houten mok in berkenhout">
-                    <div class="portfolio-overlay">
-                        <h3>Berken Mok</h3>
-                        <p>Hoogte: 10cm</p>
-                        <p>November 2024</p>
-                        <span class="wood-type">Berkenhout</span>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="lepels">
-                    <img src="images/lepel02_thumb.jpg" alt="Houten lepel in esdoornhout">
-                    <div class="portfolio-overlay">
-                        <h3>Esdoorn Lepel</h3>
-                        <p>Lengte: 16cm</p>
-                        <p>Oktober 2024</p>
-                        <span class="wood-type">Esdoornhout</span>
-                    </div>
-                </div>
-                
-                <!-- Voeg meer items toe voor al je 9 afbeeldingen -->
-            </div>
-        </div>
-    </div>
-</section>
+@media screen and (max-width: 736px) {
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-    <div class="lightbox-content">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <button class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">&#8249;</button>
-        <button class="lightbox-nav lightbox-next" onclick="navigateImage(1)">&#8250;</button>
-        <img class="lightbox-image" id="lightboxImage" src="" alt="">
-        <div class="lightbox-info" id="lightboxInfo">
-            <h3 id="lightboxTitle"></h3>
-            <p id="lightboxDetails"></p>
-            <p id="lightboxWood"></p>
-        </div>
-    </div>
-</div>
+		/* Basic */
 
-<script>
-// Portfolio JavaScript
-let currentImageIndex = 0;
-let portfolioItems = [];
+			body, input, textarea, select {
+				font-size: 14pt;
+			}
 
-// Initialize portfolio
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all portfolio items
-    portfolioItems = document.querySelectorAll('.portfolio-item');
-    
-    // Add click listeners to portfolio items
-    portfolioItems.forEach((item, index) => {
-        item.addEventListener('click', () => openLightbox(index));
-    });
-    
-    // Add click listeners to filter buttons
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-            
-            // Filter items
-            const filter = btn.getAttribute('data-filter');
-            filterPortfolio(filter);
-        });
-    });
-    
-    // Close lightbox on background click
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeLightbox();
-        }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        const lightbox = document.getElementById('lightbox');
-        if (lightbox.classList.contains('active')) {
-            switch(e.key) {
-                case 'Escape':
-                    closeLightbox();
-                    break;
-                case 'ArrowLeft':
-                    navigateImage(-1);
-                    break;
-                case 'ArrowRight':
-                    navigateImage(1);
-                    break;
-            }
-        }
-    });
-});
+			h2 {
+				font-size: 1.5em;
+				letter-spacing: 0;
+				font-weight: 300;
+			}
 
-// Filter portfolio items
-function filterPortfolio(category) {
-    portfolioItems.forEach(item => {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.classList.remove('hidden');
-        } else {
-            item.classList.add('hidden');
-        }
-    });
-}
+			.container {
+				padding: 0 15px 0 15px;
+			}
 
-// Open lightbox
-function openLightbox(index) {
-    currentImageIndex = index;
-    const item = portfolioItems[index];
-    const img = item.querySelector('img');
-    const overlay = item.querySelector('.portfolio-overlay');
-    
-    // Get large image path (replace _thumb with _large or your naming convention)
-    const largeSrc = img.src.replace('_thumb', '_large');
-    
-    document.getElementById('lightboxImage').src = largeSrc;
-    document.getElementById('lightboxTitle').textContent = overlay.querySelector('h3').textContent;
-    
-    // Get details
-    const details = Array.from(overlay.querySelectorAll('p')).map(p => p.textContent).join(' • ');
-    document.getElementById('lightboxDetails').textContent = details;
-    
-    const woodType = overlay.querySelector('.wood-type');
-    document.getElementById('lightboxWood').textContent = woodType ? woodType.textContent : '';
-    
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
+		/* List */
 
-// Close lightbox
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = ''; // Restore scrolling
-}
+			ul.icons a {
+				width: 2em;
+				font-size: 1.25em;
+			}
 
-// Navigate between images
-function navigateImage(direction) {
-    const visibleItems = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
-    const currentVisibleIndex = visibleItems.indexOf(portfolioItems[currentImageIndex]);
-    
-    let newIndex = currentVisibleIndex + direction;
-    
-    if (newIndex >= visibleItems.length) {
-        newIndex = 0;
-    } else if (newIndex < 0) {
-        newIndex = visibleItems.length - 1;
-    }
-    
-    const actualIndex = Array.from(portfolioItems).indexOf(visibleItems[newIndex]);
-    openLightbox(actualIndex);
-}
+		/* Main */
 
-// Smooth scrolling for anchor links (if you want to add nav link)
-function smoothScrollTo(targetId) {
-    const target = document.getElementById(targetId);
-    if (target) {
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-</script>
+			#main > section {
+				padding: 2em 0;
+			}
+
+			#main section.cover {
+				padding: 4em 0em;
+			}
+
+				#main section.cover header {
+					padding: 0 1em;
+				}
+
+		/* Footer */
+
+			#footer .copyright li {
+				display: block;
+				line-height: 1.25em;
+				border: 0;
+				padding: 0;
+				margin: 1em 0 0 0;
+			}
+
+				#footer .copyright li:first-child {
+					margin-top: 0;
+				}
+
+	}
+
+/* Portfolio Section */
+
+	#portfolio {
+		background-color: #f5fafa;
+	}
+
+	.portfolio-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2em;
+	}
+
+	/* Filter Buttons */
+
+		.portfolio-filters {
+			text-align: center;
+			margin-bottom: 3em;
+		}
+
+		.filter-btn {
+			display: inline-block;
+			padding: 0.5em 1.5em;
+			margin: 0 0.5em;
+			background: #fff;
+			color: #666;
+			border: 2px solid #ddd;
+			border-radius: 0.35em;
+			text-decoration: none;
+			font-size: 0.9em;
+			font-weight: 300;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.filter-btn:hover,
+		.filter-btn.active {
+			background: #8ebebc;
+			color: #fff;
+			border-color: #8ebebc;
+			transform: translateY(-2px);
+		}
+
+	/* Portfolio Grid */
+
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2em;
+			margin-bottom: 3em;
+		}
+
+		.portfolio-item {
+			background: #fff;
+			border-radius: 0.5em;
+			overflow: hidden;
+			box-shadow: 0 0.15em 0.35em 0 rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			position: relative;
+		}
+
+		.portfolio-item:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 0.25em 0.6em 0 rgba(0, 0, 0, 0.15);
+		}
+
+		.portfolio-item img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			display: block;
+		}
+
+		.portfolio-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(135deg, rgba(142, 190, 188, 0.9), rgba(226, 118, 137, 0.9));
+			color: #fff;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			opacity: 0;
+			transition: all 0.3s ease;
+			padding: 2em;
+		}
+
+		.portfolio-item:hover .portfolio-overlay {
+			opacity: 1;
+		}
+
+		.portfolio-overlay h3 {
+			color: #fff;
+			font-size: 1.3em;
+			margin-bottom: 0.5em;
+			font-weight: 400;
+		}
+
+		.portfolio-overlay p {
+			font-size: 0.9em;
+			margin-bottom: 0.3em;
+			opacity: 0.9;
+		}
+
+		.portfolio-overlay .wood-type {
+			font-weight: 600;
+			background: rgba(255, 255, 255, 0.2);
+			padding: 0.3em 0.8em;
+			border-radius: 15px;
+			font-size: 0.8em;
+			margin-top: 0.5em;
+		}
+
+	/* Lightbox */
+
+		.lightbox {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.9);
+			z-index: 10003;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.lightbox.active {
+			display: flex;
+		}
+
+		.lightbox-content {
+			position: relative;
+			max-width: 90%;
+			max-height: 90%;
+			background: #fff;
+			border-radius: 0.5em;
+			overflow: hidden;
+			box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+		}
+
+		.lightbox-image {
+			width: 100%;
+			height: auto;
+			max-height: 70vh;
+			object-fit: contain;
+		}
+
+		.lightbox-info {
+			padding: 1.5em;
+			background: #fff;
+			text-align: center;
+		}
+
+		.lightbox-info h3 {
+			color: #666;
+			font-size: 1.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.lightbox-info p {
+			color: #888;
+			margin-bottom: 0.3em;
+		}
+
+		.lightbox-close {
+			position: absolute;
+			top: 1em;
+			right: 1em;
+			background: rgba(0, 0, 0, 0.7);
+			color: #fff;
+			border: none;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			font-size: 1.5em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.lightbox-close:hover {
+			background: rgba(0, 0, 0, 0.9);
+			transform: scale(1.1);
+		}
+
+		.lightbox-nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0, 0, 0, 0.7);
+			color: #fff;
+			border: none;
+			padding: 1em;
+			font-size: 1.5em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.lightbox-nav:hover {
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		.lightbox-prev {
+			left: 1em;
+		}
+
+		.lightbox-next {
+			right: 1em;
+		}
+
+	/* Hidden class for filtering */
+
+		.portfolio-item.hidden {
+			display: none;
+		}
+
+	/* Portfolio Responsive Design */
+
+		@media screen and (max-width: 960px) {
+
+			.portfolio-grid {
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5em;
+			}
+
+			.portfolio-item img {
+				height: 250px;
+			}
+
+			.filter-btn {
+				margin: 0.3em;
+				padding: 0.4em 1em;
+				font-size: 0.8em;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.portfolio-container {
+				padding: 0 1em;
+			}
+
+			.portfolio-grid {
+				grid-template-columns: 1fr;
+				gap: 1em;
+			}
+
+			.portfolio-item img {
+				height: 200px;
+			}
+
+			.portfolio-overlay {
+				padding: 1.5em;
+			}
+
+			.lightbox-content {
+				max-width: 95%;
+				margin: 0 1em;
+			}
+
+			.lightbox-nav {
+				font-size: 1.2em;
+				padding: 0.8em;
+			}
+
+		}
