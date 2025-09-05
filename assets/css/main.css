@@ -1960,22 +1960,26 @@ input, select, textarea {
 		-ms-transition: background-color 0.35s ease-in-out;
 		transition: background-color 0.35s ease-in-out;
 	}
+button {
+  background-color: #ff6600;   /* standaardkleur */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;          /* afgeronde hoeken */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-		input[type="button"]:hover,
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		button:hover,
-		.button:hover {
-			background-color: #cc5200;
-		}
+button:hover {
+  background-color: #cc5200;   /* hoverkleur */
+  transform: translateY(-2px); /* optisch een kleine 'lift' */
+}
 
-		input[type="button"]:active,
-		input[type="submit"]:active,
-		input[type="reset"]:active,
-		button:active,
-		.button:active {
-			background-color: #7eaeac;
-		}
+button:active {
+  background-color: #993d00;   /* bij klikken */
+  transform: translateY(0);    /* weer naar beneden */
+}
 
 /* Item */
 
