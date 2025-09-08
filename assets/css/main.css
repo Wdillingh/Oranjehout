@@ -2892,15 +2892,13 @@ input[type="button"]:hover,
     }
 }
 /* Custom thumbnail sizing */
-.work-item .image.fit.thumb {
+.row .work-item .image.fit.thumb {
     width: 300px !important;
     height: 300px !important;
-    display: block;
 }
 
-.work-item .image.fit.thumb img {
+.row .work-item .image.fit.thumb img {
     width: 300px !important;
     height: 300px !important;
     object-fit: cover !important;
-    object-position: center !important;
 }
