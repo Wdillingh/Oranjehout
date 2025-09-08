@@ -2891,3 +2891,15 @@ input[type="button"]:hover,
         padding: 0.8em;
     }
 }
+/* Custom thumbnail sizing */
+.work-item .image.fit.thumb {
+    width: 300px;
+    height: 300px;
+}
+
+.work-item .image.fit.thumb img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
