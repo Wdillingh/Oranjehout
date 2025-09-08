@@ -68,6 +68,7 @@
 						</div>
 					</section>
 <!-- Portfolio Section - voeg dit toe aan je HTML -->
+<!-- Portfolio Section - Prologue stijl -->
 <section id="portfolio" class="main">
     <div class="container">
         <header>
@@ -75,58 +76,45 @@
             <p>Handgemaakte lepels en mokken uit verschillende houtsoorten</p>
         </header>
         
-        <div class="portfolio-container">
-            <!-- Filter Buttons -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Alles</button>
-                <button class="filter-btn" data-filter="lepels">Lepels</button>
-                <button class="filter-btn" data-filter="mokken">Mokken</button>
-                <button class="filter-btn" data-filter="bekers">Bekers</button>
-            </div>
+        <!-- Portfolio Grid in Prologue stijl -->
+        <div class="row">
+            <!-- Lepel 1 -->
+            <article class="col-6 col-12-xsmall work-item">
+                <a href="images/lepel1-1400.jpg" class="image fit thumb">
+                    <img src="images/lepel1-700.jpg" alt="Vogelkers lepel" />
+                </a>
+                <h3>Vogelkers Lepel</h3>
+                <p>Handgesneden lepel uit vogelkers hout. Lengte: 18cm - December 2024</p>
+            </article>
             
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                <!-- Voorbeeld items - pas aan naar jouw afbeeldingen -->
-<article class="work-item">
-    <a href="images/lepel1-1400.jpg" class="image fit thumb">
-        <img src="images/lepel1-700.jpg" alt="Houten lepel in vogelkers" />
-    </a>
-    <h3>Vogelkers Lepel</h3>
-    <p>Lengte: 18cm - December 2024</p>
-</article>
-                
-                <div class="portfolio-item" data-category="mokken">
-                    <img src="images/mok1-700.jpg" alt="Houten mok in berkenhout">
-                    <div class="portfolio-overlay">
-                        <h3>Berken Mok</h3>
-                        <p>Hoogte: 10cm</p>
-                        <p>November 2024</p>
-                        <span class="wood-type">Berkenhout</span>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="lepels">
-                    <img src="images/lepel02_thumb.jpg" alt="Houten lepel in esdoornhout">
-                    <div class="portfolio-overlay">
-                        <h3>Esdoorn Lepel</h3>
-                        <p>Lengte: 16cm</p>
-                        <p>Oktober 2024</p>
-                        <span class="wood-type">Esdoornhout</span>
-                    </div>
-					
-                </div>
-				  <div class="portfolio-item" data-category="lepels">
-                    <img src="images/lepel01_thumb.jpg" alt="Houten lepel in eikenhout">
-                    <div class="portfolio-overlay">
-                        <h3>Eiken Lepel</h3>
-                        <p>Lengte: 18cm</p>
-                        <p>December 2024</p>
-                        <span class="wood-type">Eikenhout</span>
-                    </div>
-                </div>
-                
-                <!-- Voeg meer items toe voor al je 9 afbeeldingen -->
-            </div>
+            <!-- Lepel 2 -->
+            <article class="col-6 col-12-xsmall work-item">
+                <a href="images/lepel2-1400.jpg" class="image fit thumb">
+                    <img src="images/lepel2-700.jpg" alt="Eiken lepel" />
+                </a>
+                <h3>Eiken Lepel</h3>
+                <p>Stevige lepel uit eikenhout met mooie houtnerf. Lengte: 16cm - November 2024</p>
+            </article>
+            
+            <!-- Mok 1 -->
+            <article class="col-6 col-12-xsmall work-item">
+                <a href="images/mok1-1400.jpg" class="image fit thumb">
+                    <img src="images/mok1-700.jpg" alt="Berkenhout mok" />
+                </a>
+                <h3>Berken Mok</h3>
+                <p>Lichte mok uit berkenhout met gladde afwerking. Inhoud: 250ml - December 2024</p>
+            </article>
+            
+            <!-- Beker 1 -->
+            <article class="col-6 col-12-xsmall work-item">
+                <a href="images/beker1-1400.jpg" class="image fit thumb">
+                    <img src="images/beker1-700.jpg" alt="Kersenhout beker" />
+                </a>
+                <h3>Kersen Beker</h3>
+                <p>Elegante beker uit kersenhout met natuurlijke kleur. Inhoud: 200ml - Oktober 2024</p>
+            </article>
+            
+            <!-- Voeg meer items toe naar behoefte -->
         </div>
     </div>
 </section>
@@ -349,6 +337,7 @@ function smoothScrollTo(targetId) {
 	</body>
 
 </html>
+
 
 
 
