@@ -1,296 +1,283 @@
-<!DOCTYPE HTML>
-<!--
-	Oranjehout
-		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html lang="nl">
-	<head>
-		<title>Oranjehout</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Layout Update</title>
+    <style>
+        /* Nieuwe CSS voor contact sectie */
+        
+        /* Contact container - flexbox layout */
+        .contact-main-layout {
+            display: flex;
+            gap: 0;
+            margin: 2em 0;
+            align-items: stretch;
+        }
 
-		<!-- Header -->
-		<div id="header">
-			<div class="top">
-				<!-- Logo -->
-				<div id="logo">
-					<span class="image avatar48"><img src="images/avatar.png" alt="" /></span>
-					<h1 id="title">Willem Dillingh</h1>
-					<strong>Oranjehout</strong>
-				</div>
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-						<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-						<li><a href="#about" id="about-link"><span class="icon solid fa-user">Over mij</span></a></li>
-						<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="bottom">
-				<!-- Social Icons -->
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-			</div>
-		</div>
+        /* Form container - links, 60% breedte */
+        .contact-form-container {
+            flex: 0 0 60%;
+            background: #fff;
+            padding: 2em;
+            border-radius: 0.5em 0 0 0.5em;
+            box-shadow: 0 0.15em 0.35em 0 rgba(0, 0, 0, 0.1);
+        }
 
-		<!-- Main -->
-		<div id="main">
+        /* Contact info container - rechts, 40% breedte, donkere balk */
+        .contact-info-container {
+            flex: 0 0 40%;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff;
+            padding: 2em;
+            border-radius: 0 0.5em 0.5em 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-			<!-- Intro -->
-			<section id="top" class="one dark cover">
-				<div class="container">
-					<header>
-						<h2 class="alt">Bij <strong>Oranjehout</strong> combineer ik traditioneel handwerk met de natuurlijke schoonheid van lokaal hout. Zo ontstaan lepels en andere producten met karakter en een verhaal.</h2>
-						<p>Lokaal hout, puur ambacht.<br /></p>
-					</header>
-					<footer>
-						<a href="#portfolio" class="button scrolly">Portfolio</a>
-					</footer>
-				</div>
-			</section>
+        /* Decoratief patroon voor de donkere balk */
+        .contact-info-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
 
-			<!-- Portfolio Section -->
-			<section id="portfolio" class="main">
-				<div class="container">
-					<header>
-						<h2>Mijn Houtsnijwerk</h2>
-						<p>Handgemaakte lepels en mokken uit verschillende houtsoorten</p>
-					</header>
-					<div class="row">
-						<!-- Portfolio Items -->
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/lepel1-700.jpg" alt="Vogelkers lepel" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Vogelkers Lepel</h3>
-								<p>Handgesneden lepel uit vogelkers hout. Lengte: 18cm - December 2024</p>
-								<span class="wood-type">Vogelkers</span>
-							</div>
-						</article>
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/lepel2-700.jpg" alt="Mimosa lepel" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Mimosa Lepel</h3>
-								<p>Stevige lepel uit mimosa met mooie houtnerf. Lengte: 16cm - juli 2024</p>
-								<span class="wood-type">Mimosa</span>
-							</div>
-						</article>
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/mok1-700.jpg" alt="Berkenhout mok" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Berken Mok</h3>
-								<p>Mok uit berkenhout met "slaap" en gladde afwerking. Inhoud: 250ml - December 2024</p>
-								<span class="wood-type">Berken</span>
-							</div>
-						</article>
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/lepel3-700.jpg" alt="Elzenhout lepel" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Elzenhout Lepel</h3>
-								<p>Handig koffielepeltje van elzenhout met natuurlijke kleur. Inhoud: 6 ml - juni 2024</p>
-								<span class="wood-type">Els</span>
-							</div>
-						</article>
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/lepel4-700.jpg" alt="Kersenhout lepel" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Kersenhout Lepel</h3>
-								<p>Eetlepel van kersenhout met spint en kernhout. Lengte: 18 cm - juni 2024</p>
-								<span class="wood-type">Kers</span>
-							</div>
-						</article>
-						<article class="portfolio-item col-4 col-12-xsmall">
-							<a href="#" class="image thumb">
-								<img src="images/mok2-700.jpg" alt="Berkenhout mok" />
-							</a>
-							<div class="portfolio-overlay">
-								<h3>Berken Mok</h3>
-								<p>Mok uit berkenhout met gladde afwerking. Inhoud: 250ml - mei 2025</p>
-								<span class="wood-type">Berken</span>
-							</div>
-						</article>
-						<!-- Meer items naar behoefte -->
-					</div>
-				</div>
-			</section>
+        /* Contact tekst styling */
+        .contact-tekst {
+            margin-bottom: 2em;
+            position: relative;
+            z-index: 2;
+        }
 
-			<!-- Lightbox -->
-			<div class="lightbox" id="lightbox">
-				<div class="lightbox-content">
-					<button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-					<button class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">&#8249;</button>
-					<button class="lightbox-nav lightbox-next" onclick="navigateImage(1)">&#8250;</button>
-					<img class="lightbox-image" id="lightboxImage" src="" alt="">
-					<div class="lightbox-info" id="lightboxInfo">
-						<h3 id="lightboxTitle"></h3>
-						<p id="lightboxDetails"></p>
-						<p id="lightboxWood"></p>
-					</div>
-				</div>
-			</div>
+        .contact-tekst p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+        }
 
-			<!-- Over mij -->
-			<section id="about" class="three">
-				<div class="container">
-					<header>
-						<h2>Over mij</h2>
-					</header>
-					<a href="#" class="image featured"><img src="images/overmij.jpg" alt="" /></a>
-					<p>Bij Oranjehout vind je ambachtelijk gemaakte lepels en houten producten. 
-						Ik werk met lokaal hout, met aandacht en liefde voor elk stuk dat ik maak. 
-						Elk product is uniek, net als het hout zelf.</p>
-				</div>
-			</section>
+        /* Contact gegevens styling */
+        .contact-gegevens {
+            position: relative;
+            z-index: 2;
+        }
 
-			<!-- Contact -->
-			<section id="contact" class="four">
-				<div class="container">
-					<header>
-						<h2>Contact</h2>
-					</header>
-					<div class="contact-container">
-						<div class="contact-tekst">
-							<p>Wil je iets bestellen of meer weten over mijn werk? 
-							Stuur me een berichtje en ik neem zo snel mogelijk contact op.</p>
-						</div>
-						<address class="contact-gegevens">
-							<p><strong>Adres:</strong> van Aylvalaan 7, 8454 KM, Mildam</p>
-							<p><strong>Telefoon:</strong> 06-48465466</p>
-							<p><strong>Email:</strong> <a href="mailto:wfndillingh@gmail.com">wfndillingh@gmail.com</a></p>
-						</address>
-					</div>
-					<form action="https://formspree.io/f/xrbavwnn" method="POST">
-						<input type="hidden" name="_next" value="https://oranjehout.pages.dev/bedankt.html" />
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<label for="name">Naam</label>
-								<input type="text" id="name" name="name" placeholder="Naam" required />
-							</div>
-							<div class="col-6 col-12-mobile">
-								<label for="email">Email</label>
-								<input type="email" id="email" name="email" placeholder="Email" required />
-							</div>
-							<div class="col-12">
-								<label for="message">Bericht</label>
-								<textarea id="message" name="message" placeholder="Bericht" required></textarea>
-							</div>
-							<div class="col-12">
-								<input type="submit" value="Verstuur bericht" />
-							</div>
-						</div>
-					</form>
-				</div>
-			</section>
-		</div>
+        .contact-gegevens h3 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            font-weight: 400;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5em;
+        }
 
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Oranjehout. All rights reserved.</li>
-				<li>Design: <a href="http://dillinghdesign.nl">Dillingh Design</a></li>
-			</ul>
-		</div>
+        .contact-gegevens p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script>
-		// Portfolio JavaScript
-		let currentImageIndex = 0;
-		let portfolioItems = [];
+        .contact-gegevens strong {
+            color: #fc6000;
+            font-weight: 400;
+            min-width: 80px;
+        }
 
-		document.addEventListener('DOMContentLoaded', function() {
-			portfolioItems = document.querySelectorAll('.portfolio-item');
-			portfolioItems.forEach((item, index) => {
-				item.addEventListener('click', () => openLightbox(index));
-			});
+        .contact-gegevens a {
+            color: #fc6000;
+            border-bottom: 1px dotted rgba(252, 96, 0, 0.5);
+            transition: all 0.3s ease;
+        }
 
-			document.getElementById('lightbox').addEventListener('click', function(e) {
-				if (e.target === this) {
-					closeLightbox();
-				}
-			});
+        .contact-gegevens a:hover {
+            color: #fff;
+            border-bottom-color: rgba(255, 255, 255, 0.8);
+        }
 
-			document.addEventListener('keydown', function(e) {
-				const lightbox = document.getElementById('lightbox');
-				if (lightbox.classList.contains('active')) {
-					switch(e.key) {
-						case 'Escape':
-							closeLightbox();
-							break;
-						case 'ArrowLeft':
-							navigateImage(-1);
-							break;
-						case 'ArrowRight':
-							navigateImage(1);
-							break;
-					}
-				}
-			});
-		});
+        /* Form styling improvements */
+        .contact-form-container h3 {
+            color: #666;
+            font-size: 1.4em;
+            margin-bottom: 1.5em;
+            font-weight: 300;
+        }
 
-		function openLightbox(index) {
-			currentImageIndex = index;
-			const item = portfolioItems[index];
-			const img = item.querySelector('img');
-			const overlay = item.querySelector('.portfolio-overlay');
-			const largeSrc = img.src.replace('-700', '-1400');
+        .contact-form-container form .row {
+            margin-bottom: 0;
+        }
 
-			document.getElementById('lightboxImage').src = largeSrc;
-			document.getElementById('lightboxTitle').textContent = overlay.querySelector('h3').textContent;
-			document.getElementById('lightboxDetails').textContent = overlay.querySelector('p').textContent;
-			const woodType = overlay.querySelector('.wood-type');
-			document.getElementById('lightboxWood').textContent = woodType ? woodType.textContent : '';
+        .contact-form-container form label {
+            color: #666;
+            font-weight: 400;
+            font-size: 0.9em;
+            margin-bottom: 0.3em;
+        }
 
-			document.getElementById('lightbox').classList.add('active');
-			document.body.style.overflow = 'hidden';
-		}
+        /* Responsive design */
+        @media screen and (max-width: 960px) {
+            .contact-main-layout {
+                flex-direction: column;
+                gap: 0;
+            }
 
-		function closeLightbox() {
-			document.getElementById('lightbox').classList.remove('active');
-			document.body.style.overflow = '';
-		}
+            .contact-form-container {
+                flex: none;
+                border-radius: 0.5em 0.5em 0 0;
+                order: 2;
+            }
 
-		function navigateImage(direction) {
-			const visibleItems = Array.from(portfolioItems);
-			let newIndex = currentImageIndex + direction;
-			if (newIndex >= visibleItems.length) {
-				newIndex = 0;
-			} else if (newIndex < 0) {
-				newIndex = visibleItems.length - 1;
-			}
-			openLightbox(newIndex);
-		}
-		</script>
-	</body>
+            .contact-info-container {
+                flex: none;
+                border-radius: 0 0 0.5em 0.5em;
+                order: 1;
+                padding: 1.5em;
+            }
+
+            .contact-tekst p,
+            .contact-gegevens p {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .contact-main-layout {
+                margin: 1em 0;
+            }
+
+            .contact-form-container,
+            .contact-info-container {
+                padding: 1.5em;
+            }
+
+            .contact-gegevens p {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3em;
+            }
+
+            .contact-gegevens strong {
+                min-width: auto;
+            }
+        }
+
+        /* Icons voor contactgegevens */
+        .contact-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: rgba(252, 96, 0, 0.2);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.8em;
+            color: #fc6000;
+            flex-shrink: 0;
+        }
+
+        /* Extra styling voor de form submit button */
+        .contact-form-container input[type="submit"] {
+            background-color: #fc6000;
+            width: 100%;
+            margin-top: 1em;
+            font-size: 1em;
+            padding: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form-container input[type="submit"]:hover {
+            background-color: #cc5200;
+            transform: translateY(-2px);
+            box-shadow: 0 0.25em 0.6em 0 rgba(252, 96, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2em; background: #f5f5f5; min-height: 100vh;">
+        <h1 style="text-align: center; color: #666; margin-bottom: 2em;">Contact Layout Voorbeeld</h1>
+        
+        <!-- Huidige layout van je contact sectie, maar dan aangepast -->
+        <section id="contact" class="four">
+            <div class="container">
+                <header style="text-align: center; margin-bottom: 2em;">
+                    <h2>Contact</h2>
+                </header>
+                
+                <!-- Nieuwe layout structuur -->
+                <div class="contact-main-layout">
+                    <!-- Formulier links -->
+                    <div class="contact-form-container">
+                        <h3>Stuur een bericht</h3>
+                        <form action="https://formspree.io/f/xrbavwnn" method="POST">
+                            <input type="hidden" name="_next" value="https://oranjehout.pages.dev/bedankt.html" />
+                            <div class="row">
+                                <div class="col-6 col-12-mobile">
+                                    <label for="name">Naam</label>
+                                    <input type="text" id="name" name="name" placeholder="Naam" required />
+                                </div>
+                                <div class="col-6 col-12-mobile">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Email" required />
+                                </div>
+                                <div class="col-12">
+                                    <label for="message">Bericht</label>
+                                    <textarea id="message" name="message" placeholder="Bericht" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <input type="submit" value="Verstuur bericht" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Contactgegevens rechts op donkere balk -->
+                    <div class="contact-info-container">
+                        <div class="contact-tekst">
+                            <p>Wil je iets bestellen of meer weten over mijn werk? Stuur me een berichtje en ik neem zo snel mogelijk contact op.</p>
+                        </div>
+                        
+                        <div class="contact-gegevens">
+                            <h3>Contactgegevens</h3>
+                            <p>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span><strong>Adres:</strong> van Aylvalaan 7, 8454 KM, Mildam</span>
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-mobile"></i>
+                                <span><strong>Telefoon:</strong> 06-48465466</span>
+                            </p>
+                            <p>
+                                <span class="contact-icon">📧</span>
+                                <span><strong>Email:</strong> <a href="mailto:wfndillingh@gmail.com">wfndillingh@gmail.com</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <div style="background: #fff; padding: 2em; margin-top: 2em; border-radius: 0.5em;">
+        <h2 style="color: #666; margin-bottom: 1em;">Implementatie Instructies:</h2>
+        <ol style="color: #666; line-height: 1.6;">
+            <li>Vervang je huidige <code>.contact-container</code> div in je HTML met de nieuwe <code>.contact-main-layout</code> structuur</li>
+            <li>Voeg de CSS code hierboven toe aan je main.css bestand</li>
+            <li>De layout is volledig responsive en past zich aan op mobiele apparaten</li>
+            <li>Op desktop: formulier links (60%), contactgegevens rechts (40%) op donkere balk</li>
+            <li>Op mobiel: contactgegevens bovenaan, formulier daaronder</li>
+        </ol>
+    </div>
+</body>
 </html>
-
-
-
-
-
-
-
-
