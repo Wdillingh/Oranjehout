@@ -46,15 +46,16 @@
     color: white;
     padding: 2rem 1rem 1rem;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(0);
     transition: all 0.3s ease;
     max-height: 90%;
     box-sizing: border-box;
+    height: auto;
+    min-height: fit-content;
 }
 
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .portfolio-overlay h3 {
