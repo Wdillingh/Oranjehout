@@ -45,8 +45,10 @@
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
     padding: 2rem 1rem 1rem;
-    transform: translateY(100%);
+    transform: translateY(calc(100% - 10px));
     transition: transform 0.3s ease;
+    max-height: 80%;
+    overflow: hidden;
 }
 
 .portfolio-item:hover .portfolio-overlay {
