@@ -42,17 +42,15 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 70%, transparent 100%);
-    color: #e5e5e5;
-    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: white;
+    padding: 2rem 1rem 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 50%;
-    min-height: fit-content;
+    max-height: 75%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -61,8 +59,18 @@
 
 .portfolio-overlay h3 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #e5e5e5;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.portfolio-overlay p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
 }
 
 .portfolio-overlay p {
