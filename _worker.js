@@ -7,7 +7,7 @@ export default {
       return Response.redirect('https://oranje-hout.nl' + url.pathname + url.search, 301);
     }
     
-    // Voor oranje-hout.nl: toon gewoon de website
-    return env.ASSETS.fetch(request);
+    // Voor alle andere verzoeken (inclusief oranje-hout.nl): haal de assets op
+    return await env.ASSETS.fetch(request);
   }
 };
